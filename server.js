@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const port = "https://adv-provider.herokuapp.com/";
-app.listen(port);
+app.listen();
 console.log('Server started! At http://localhost:' + port);
 
 app.use(express.static(__dirname + '/views'));
