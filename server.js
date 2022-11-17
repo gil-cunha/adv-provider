@@ -1,28 +1,8 @@
-// Carregamento dos módulos
-const express = require('express');
-const app = express();
-const port = process.env.port || 8080;
-app.listen(port);
-console.log('Server started! At http://localhost:' + port);
-
-app.use(express.static(__dirname + '/views'));
-
-app.get('/api/users', function(req, res){
-    const user_id = req.param('id');
-    const token = req.param('token');
-    const geo = req.param('geo');
-    res.send(user_id + ' ' + token + ' ' + geo);
-})
-
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended:true
-}))
-
-app.post('/api/users', function(req, res){
-    const user_id = req.body.id;
-    const token = req.body.token;
-    const geo = req.body.geo;
-    res.send(user_id + ' ' + token + ' ' + geo);
-})
+const http = require('http');
+const server = http.createServer(function(request, respose){
+    respose.writeHead(200, {'Content-Type':'text/html'});
+    respose.write('<html><body><h1>Olá, Mundo</h1></body></html>');
+    respose.end();
+});
+server.listen();
+console.log('Servidor Node.js em execução');
