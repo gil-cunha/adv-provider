@@ -1,7 +1,7 @@
 // Carregamento dos módulos
 const express = require('express');
 const app = express();
-const port = process.env.port || 8080;
+const port = "https://adv-provider.herokuapp.com/";
 app.listen(port);
 console.log('Server started! At http://localhost:' + port);
 
