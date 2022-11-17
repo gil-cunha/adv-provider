@@ -1,0 +1,31 @@
+{
+  "name": "adv-provider",
+  "version": "1.0.0",
+  "description": "actividade ADV",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gil-cunha/adv-provider.git"
+  },
+  "keywords": [
+    "ADV",
+    "Inven!ra",
+    "Arquitetura",
+    "e",
+    "Padrões",
+    "de",
+    "Software"
+  ],
+  "author": "Gil Cunha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gil-cunha/adv-provider/issues"
+  },
+  "homepage": "https://github.com/gil-cunha/adv-provider#readme",
+  "dependencies": {
+    "express.js": "^1.0.0"
+  }
+}
