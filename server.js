@@ -1,9 +1,9 @@
 // Carregamento dos módulos
 const express = require('express');
 const app = express();
-//const port = process.env.port || 8080;
-app.listen();
-//console.log('Server started! At http://localhost:' + port);
+const port = process.env.port || 8080;
+app.listen(port);
+console.log('Server started! At http://localhost:' + port);
 
 app.use(express.static(__dirname + '/views'));
 
