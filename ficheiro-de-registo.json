@@ -1,0 +1,8 @@
+{
+    "name": "Atividade ADV",
+    "config_url": "https://adv-provider.herokuapp.com/configurar.html",
+    "json_params_url": "https://adv-provider.herokuapp.com/json-params",
+    "user_url": "https://adv-provider.herokuapp.com/deploy",
+    "analytics_url": "https://adv-provider.herokuapp.com/analytics",
+    "analytics_list_url": "https://adv-provider.herokuapp.com/json-analytics"
+}

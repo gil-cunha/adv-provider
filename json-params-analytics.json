@@ -1,0 +1,10 @@
+{
+    "qualAnalytics": [
+        {"name": "correction", "type": "URL"}
+    ],
+    "quantAnalytics": [
+        {"name": "acess", "type": "boolean"},
+        {"name": "performed", "type": "boolean"},
+        {"name": "score", "type": "number"}
+    ]
+}
