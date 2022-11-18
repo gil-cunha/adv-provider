@@ -115,6 +115,6 @@ app.post('/analytics_url', function (req, res) {
 
 var server = app.listen(8081, function () {
    var host = server.address().address
-   var port = server.address().port
+   var port = server.address().PORT
    console.log("Example app listening at http://%s:%s", host, port)
 })
