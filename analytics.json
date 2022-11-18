@@ -1,0 +1,46 @@
+[
+    {
+      "inveniraStdID": 1001,
+      "quantAnalytics": [
+        {
+          "name": "acess",
+          "value": true
+        },
+        {
+          "name": "performed",
+          "value": true
+        },
+        {
+          "name": "score",
+          "value": "20"
+        }
+      ],
+      "qualAnalytics": [
+        {
+          "Qualitative Analytics": "https://ActivityProvider/?APAnID=11111111"
+        }
+      ]
+    },
+    {
+      "inveniraStdID": 1002,
+      "quantAnalytics": [
+        {
+          "name": "acess",
+          "value": true
+        },
+        {
+          "name": "performed",
+          "value": false
+        },
+        {
+          "name": "score",
+          "value": "-"
+        }
+      ],
+      "qualAnalytics": [
+        {
+          "Qualitative Analytics": "https://ActivityProvider/?APAnID=11111112"
+        }
+      ]
+    }
+  ]

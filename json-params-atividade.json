@@ -1,0 +1,8 @@
+[
+     {"name":"nativelang", "type":"text/plain"}
+    ,{"name":"foreignlang", "type":"text/plain"}
+    ,{"name":"description", "type":"text/plain"}
+    ,{"name":"entries", "type":"array"}
+    ,{"name":"options", "type":"array"}
+    ,{"name":"solutions", "type":"array"}
+]

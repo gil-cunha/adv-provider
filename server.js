@@ -1,28 +1,118 @@
-// Carregamento dos módulos
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 8080;
-app.listen(port);
-console.log('Server started! At http://localhost:' + port);
+var express = require('express');
+var app = express();
+var fs = require("fs");
 
-app.use(express.static(__dirname + '/views'));
+const http = require('http');
+const url = require('url');
 
-app.get('/api/users', function(req, res){
-    const user_id = req.param('id');
-    const token = req.param('token');
-    const geo = req.param('geo');
-    res.send(user_id + ' ' + token + ' ' + geo);
+/*************************************************************************************************/
+/*************************************************************************************************/
+// Configurar
+/*************************************************************************************************/
+/*************************************************************************************************/
+app.get('/configurar.html', function (req, res) { 
+   res.writeHead(200, { 'Content-Type': 'text/html' });
+   res.end("Página de Configuração da Atividade");
 })
 
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended:true
-}))
+app.get('/configurar', function (req, res) { 
+   res.writeHead(200, { 'Content-Type': 'text/html' });
+   res.end("Página de Configuração da Atividade");
+})
 
-app.post('/api/users', function(req, res){
-    const user_id = req.body.id;
-    const token = req.body.token;
-    const geo = req.body.geo;
-    res.send(user_id + ' ' + token + ' ' + geo);
+app.get('/config_url.html', function (req, res) { 
+   res.writeHead(200, { 'Content-Type': 'text/html' });
+   res.end("Página de Configuração da Atividade");
+})
+
+app.get('/config_url', function (req, res) { 
+   res.writeHead(200, { 'Content-Type': 'text/html' });
+   res.end("Página de Configuração da Atividade");
+})
+
+/*************************************************************************************************/
+/*************************************************************************************************/
+// Ficheiro JSON dos parâmetros da atividade
+/*************************************************************************************************/
+/*************************************************************************************************/
+app.get('/json-params', function (req, res) {
+   fs.readFile( __dirname + "/" + "json-params-atividade.json", 'utf8', function (err, data) {
+      console.log( data );
+      res.end( data );
+   });
+})
+
+app.get('/json_params_url', function (req, res) {
+   fs.readFile( __dirname + "/" + "json-params-atividade.json", 'utf8', function (err, data) {
+      console.log( data );
+      res.end( data );
+   });
+})
+
+/*************************************************************************************************/
+/*************************************************************************************************/
+// deploy-atividade
+/*************************************************************************************************/
+/*************************************************************************************************/
+app.get('/deploy', function (req, res) {
+   const queryObject = url.parse(req.url, true).query;
+   res.send("https://adv-provider.herokuapp.com/deploy/"+ queryObject['activityID']);
+})
+
+app.post('/deploy', function (req, res) {
+   res.send("https://adv-provider.herokuapp.com/deploy/"+ req.query['activityID'] + "/" + req.query['inveniraStdID']);
+})
+
+app.get('/user_url', function (req, res) {
+   const queryObject = url.parse(req.url, true).query;
+   res.send("https://adv-provider.herokuapp.com/deploy/"+ queryObject['activityID']);
+})
+
+app.post('/user_url', function (req, res) {
+   res.send("https://adv-provider.herokuapp.com/deploy/"+ req.query['activityID'] + "/" + req.query['inveniraStdID']);
+})
+
+/*************************************************************************************************/
+/*************************************************************************************************/
+// Ficheiro JSON dos analytics da atividade
+/*************************************************************************************************/
+/*************************************************************************************************/
+app.get('/json-analytics', function (req, res) {
+   fs.readFile( __dirname + "/" + "json-params-analytics.json", 'utf8', function (err, data) {
+      console.log(data);
+      res.end(data);
+   });
+})
+
+app.get('/analytics_list_url', function (req, res) {
+   fs.readFile( __dirname + "/" + "json-params-analytics.json", 'utf8', function (err, data) {
+      console.log( data );
+      res.end( data );
+   });
+})
+
+/*************************************************************************************************/
+/*************************************************************************************************/
+// Analytics
+/*************************************************************************************************/
+/*************************************************************************************************/
+
+app.post('/analytics', function (req, res) {
+   fs.readFile( __dirname + "/" + "analytics.json", 'utf8', function (err, data) {
+      data = JSON.parse(data);
+      res.end(JSON.stringify(data));
+   });
+})
+
+app.post('/analytics_url', function (req, res) {
+   fs.readFile( __dirname + "/" + "analytics.json", 'utf8', function (err, data) {
+      data = JSON.parse(data);
+      res.end(JSON.stringify(data));
+   });
+})
+
+var server = app.listen(8081, function () {
+   var host = server.address().address
+   var port = server.address().port
+   console.log("Example app listening at http://%s:%s", host, port)
 })
