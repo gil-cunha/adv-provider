@@ -1,9 +1,11 @@
 var express = require('express');
-var app = express();
 var fs = require("fs");
-
 const http = require('http');
 const url = require('url');
+
+var app = express();
+const port = process.env.PORT || 8080;
+app.listen(port);
 
 /*************************************************************************************************/
 /*************************************************************************************************/
@@ -113,8 +115,10 @@ app.post('/analytics_url', function (req, res) {
    });
 })
 
+/*
 var server = app.listen(8081, function () {
    var host = server.address().address
    var port = server.address().PORT
    console.log("Example app listening at http://%s:%s", host, port)
 })
+*/
