@@ -98,6 +98,7 @@ app.get('/analytics_list_url', function (req, res) {
 /*************************************************************************************************/
 
 app.post('/analytics', function (req, res) {
+   // res.send(request.body); // your JSON
    fs.readFile( __dirname + "/" + "analytics.json", 'utf8', function (err, data) {
       data = JSON.parse(data);
       res.end(JSON.stringify(data));
@@ -105,6 +106,7 @@ app.post('/analytics', function (req, res) {
 })
 
 app.post('/analytics_url', function (req, res) {
+   // res.send(request.body); // your JSON
    fs.readFile( __dirname + "/" + "analytics.json", 'utf8', function (err, data) {
       data = JSON.parse(data);
       res.end(JSON.stringify(data));
