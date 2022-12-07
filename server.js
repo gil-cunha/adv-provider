@@ -2,10 +2,12 @@ var express = require('express');
 var fs = require("fs");
 const http = require('http');
 const url = require('url');
+const path = require('path');
 
 var app = express();
 const port = process.env.PORT || 8080;
 app.listen(port);
+app.use(express.static('views'));
 
 /*************************************************************************************************/
 /*************************************************************************************************/
@@ -13,23 +15,19 @@ app.listen(port);
 /*************************************************************************************************/
 /*************************************************************************************************/
 app.get('/configurar.html', function (req, res) { 
-   res.writeHead(200, { 'Content-Type': 'text/html' });
-   res.end("Página de Configuração da Atividade");
+   res.sendFile(path.join(__dirname + "/views/html/configurar-atividade.html"));
 })
 
 app.get('/configurar', function (req, res) { 
-   res.writeHead(200, { 'Content-Type': 'text/html' });
-   res.end("Página de Configuração da Atividade");
+   res.sendFile(path.join(__dirname + "/views/configurar.html"));
 })
 
 app.get('/config_url.html', function (req, res) { 
-   res.writeHead(200, { 'Content-Type': 'text/html' });
-   res.end("Página de Configuração da Atividade");
+   res.sendFile(path.join(__dirname + "/views/configurar.html"));
 })
 
 app.get('/config_url', function (req, res) { 
-   res.writeHead(200, { 'Content-Type': 'text/html' });
-   res.end("Página de Configuração da Atividade");
+   res.sendFile(path.join(__dirname + "/views/configurar.html"));
 })
 
 /*************************************************************************************************/
@@ -114,11 +112,3 @@ app.post('/analytics_url', function (req, res) {
       res.end(JSON.stringify(data));
    });
 })
-
-/*
-var server = app.listen(8081, function () {
-   var host = server.address().address
-   var port = server.address().PORT
-   console.log("Example app listening at http://%s:%s", host, port)
-})
-*/

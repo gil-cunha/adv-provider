@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+    <head>
+        <title>Realizar Atividade</title>
+        <script type="text/javascript" src="./javascript/configurar-atividade.js"></script>
+    </head>
+    <body>
+        <form id="activityForm">
+            <label for="nativelang">Língua Nativa</label>
+            <input id="nativelang" name="nativelang" required>
+            <label for="foreignlang">Língua Estrangeira</label>
+            <input id="foreignlang" name="foreignlang" required>            
+            <br />
+            <label for="description">Descrição</label>
+            <textarea id="description" name="description" required></textarea>
+            <br />
+            <input id="addEntry" type="button" value="adicionar entrada">
+            <input id="addOption" type="button" value="adicionar opção" disabled="true">
+            <div id="wrapper"></div>
+            <input type="submit">
+            <input type="reset">
+
+            <input id="entries" name="entries">
+            <input id="options" name="options">
+        </form>
+    </body>
+</html>
